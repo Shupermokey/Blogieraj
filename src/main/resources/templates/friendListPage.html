@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+<meta charset="ISO-8859-1">
+<title>FriendList</title>
+</head>
+<body>
+	<div class = "container-fluid">
+		
+		<div class="row border">
+		
+		<div class="col-6 border">
+			<div   th:each="user : ${session.users}">
+				<div class="row">
+					<div  class="col-6" th:text="${user.getUsername()}"></div>
+						<div class="row">
+							<form action ="#" th:action="@{/addFriend}">
+								<input hidden="true" name="username" th:value="${user.getUsername()}">
+								<input type="submit" value="Add Friend">
+							</form>
+						</div>
+				</div>
+
+			</div>
+			
+		</div>
+		
+			<div class="col-6 border">
+				<div   th:each="friend : ${session.allFriends}">
+					<div class="row">
+					<div th:if="${friend.getFirstUser() != null}" class="col-4" th:text="${friend.getFirstUser().getUsername()}"></div>
+					<div th:if="${friend.getSecondUser() != null}" class="col-4" th:text="${friend.getSecondUser().getUsername()}"></div>
+					<div class="row">
+						<p th:if="${friend.getFriendReq().getStatus()==0 && friend.getSecondUser().getUsername!=session.user}">Pending</p>
+						<button th:if="${friend.getFriendReq().getStatus()==0 && friend.getFirstUser().getUsername!=session.user}">Accept</button>
+					</div>
+					</div>
+				</div>
+			</div>
+	</div>
+	
+	
+	
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>

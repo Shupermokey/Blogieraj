@@ -1,0 +1,29 @@
+@charset "ISO-8859-1";
+
+body {
+	background-color: #D8BDBD;
+}
+
+
+
+div div div div {
+	
+	border-radius: 15px;
+	display: inline-block;
+	
+}
+
+div div div div div {
+	background-color: #C09595;
+	
+}
+
+#delPost {
+	background-color: #A15F5F;
+}
+
+#postStringInput {
+	border-radius: 15px;
+}
+
+

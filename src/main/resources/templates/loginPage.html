@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+
+<link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+
+<title>Login Page</title>
+</head>
+<body>
+
+	<div class="container">
+		<div class="row">
+		<form class="col-8 mx-auto" action="#" th:action= "@{/homePage}" method=POST>
+		<div class="col-8 border mx-auto">
+			<div class="form-group col-6 mx-auto">
+				<input name="username" type="text" placeholder="Username">
+			</div>
+			<div class="form-group col-6 mx-auto">
+				<input name="password" type="password" placeholder="Password">
+			</div>
+			<div class="form-group border col-5 mx-auto">
+			<button class="float-left">Submit</button>
+			
+			<button class="float-right" ><a th:href="@{/createAccountPage}">Create</a></button>
+			</div>
+		</div>	
+			
+		</form>
+		</div>
+		
+	</div>
+
+
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>

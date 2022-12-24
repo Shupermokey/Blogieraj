@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+
+<link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+
+<title>Home Page</title>
+</head>
+<body>
+
+	<div class="container">
+		
+		<h1 th:text="${session.user}"></h1>
+		
+		<form action="#" th:action="@{/makePost}">
+		<div class="form-group">
+			<input name="stringPost" type="text">
+			<button>Submit</button>
+		</div>
+		
+		</form>
+		
+		<form action="#" th:action="@{/profile}">
+		<input type="Submit"/>
+		</form>
+		
+		<form action="#" th:action="@{/searchFriend}">
+		<input type="Submit"/>
+		</form>
+		
+	</div>
+
+
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>
