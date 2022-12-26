@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-
+<link rel="stylesheet" th:href="@{/css/loginPage.css}">
 <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
 
 <title>Create Account Page</title>
@@ -10,12 +10,24 @@
 <body>
 
 	<div class="container">
-		
-		<form action="#" th:action= "@{/createAccount}" method=POST>
-			<input name="username" type="text" placeholder="Username">
-			<input name="password" type="password" placeholder="Password">
-			<button>Submit</button>
+		<div class="row mt-5">
+		<form id="login-form" class="col-4 mx-auto border border-dark rounded"  action="#" th:action= "@{/createAccount}" method=POST>
+			<div class="col-8 mx-auto">
+					<div class="form-group col-6 mt-3">
+						<input name="username" type="text" placeholder="Username">
+					</div>
+			
+			<div class="form-group col-6 ">
+				<input name="password" type="password" placeholder="Password">
+			</div>
+			
+			<div class="form-group col-12 mx-auto pb-4 d-flex">
+			<button class="btn btn-dark mx-auto">Submit</button>
+	</div>
+		</div>	
+			
 		</form>
+		</div>
 	</div>
 
 

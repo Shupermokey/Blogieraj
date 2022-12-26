@@ -33,7 +33,11 @@
 					<div th:if="${friend.getSecondUser() != null}" class="col-4" th:text="${friend.getSecondUser().getUsername()}"></div>
 					<div class="row">
 						<p th:if="${friend.getFriendReq().getStatus()==0 && friend.getSecondUser().getUsername!=session.user}">Pending</p>
+						<form action="#" th:action="@{/AcceptRejectFriend}">
+						<input hidden="true" name="currentUserr" th:value="${friend.getFirstUser().getUsername()}">
 						<button th:if="${friend.getFriendReq().getStatus()==0 && friend.getFirstUser().getUsername!=session.user}">Accept</button>
+						<button th:if="${friend.getFriendReq().getStatus()==0 && friend.getFirstUser().getUsername!=session.user}">Reject</button>
+						</form>
 					</div>
 					</div>
 				</div>

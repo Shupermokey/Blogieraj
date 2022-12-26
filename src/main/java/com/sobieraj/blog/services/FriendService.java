@@ -53,10 +53,16 @@ public class FriendService {
 	
 	public List<Friends> findBySecondUser(BlogAccount user){
 		BlogAccount userFriend = userRepo.findBlogAccountByUsername(user.getUsername());
-		List<Friends> listFirstUserFriends = friendRepo.findByFirstUser(userFriend);
+		List<Friends> listSecondUserFriends = friendRepo.findBySecondUser(userFriend);
 		
 		
-		return listFirstUserFriends;
+		return listSecondUserFriends;
+	}
+	
+	public boolean addOrRejectFreind(BlogAccount user) {
+		BlogAccount userFriend = userRepo.findBlogAccountByUsername(user.getUsername());
+		List<Friends> listSecondUserFriends = friendRepo.findBySecondUser(userFriend);
+		return false;
 	}
 	
 
