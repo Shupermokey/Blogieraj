@@ -22,9 +22,7 @@ public class LoginController {
 	
 	@RequestMapping("/")
 	public String getLoginPage() {
-		
 		return "loginPage";
-		
 	}
 	
 	@RequestMapping("/homePage")
@@ -37,8 +35,8 @@ public class LoginController {
 		BlogAccount accountUser  = userService.findBlogAccountByUsername(account.getUsername());
 		
 		if(login) {
-			session.setAttribute("user",account.getUsername());
-			session.setAttribute("posts",accountUser.getPosts());
+			session.setAttribute("user",account.getUsername()); //set the username
+			session.setAttribute("posts",accountUser.getPosts()); // retreive all the posts
 			return "homePage";
 		}
 		

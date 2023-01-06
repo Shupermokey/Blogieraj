@@ -39,10 +39,20 @@ public class UserService {
 		repo.save(blogAccount);
 	}
 
-	public void deletePost(Post post) {
-
-		postRepo.delete(post);
+	public void deletePost(Post post, BlogAccount blogAccount) {
+		
+		if(post != null) {
+			BlogAccount account = repo.findBlogAccountByUsername(blogAccount.getUsername());
+			List<Post> posts = account.getPosts();
+			for(int i = 0; i < posts.size(); i++) {
+				if(posts.get(i).stringPost.equals(post.getStringPost())) {
+					posts.remove(i);
+					repo.save(account);
+				}
+			}
 			
+
+		}
 		}
 	
 	public List<BlogAccount> findAll(){

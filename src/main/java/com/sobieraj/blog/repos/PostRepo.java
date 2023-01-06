@@ -6,4 +6,6 @@ import com.sobieraj.blog.entities.Post;
 
 public interface PostRepo extends JpaRepository<Post, Integer>{
 	
+	public Post findPostByStringPost(String stringPost);
+	
 }

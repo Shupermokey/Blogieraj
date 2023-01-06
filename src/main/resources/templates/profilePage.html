@@ -65,7 +65,8 @@
 					<div style="height: 70px;" class="col-11 mt-2 border" >
 						<div class="mt-2" th:text="${post.stringPost}"></div>
 							<div class="float-right mt-3">
-								<form action="#" th:action= "@{/deletePost}" th:method=GET th:object="${post}">
+								<form action="#" th:action= "@{/deletePost}" th:method=GET >
+									<input hidden ="true" name="stringPost" th:value="${post.getStringPost()}">
 									<input class="btn btn-dark" id="delPost" type="submit" value="Delete"/>
 								</form>
 							</div>

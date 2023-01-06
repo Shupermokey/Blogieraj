@@ -23,10 +23,10 @@ public class PostController {
 	public String makeAPost(Post post, HttpServletRequest req) {
 		HttpSession session = req.getSession();
 		
-		userService.savePost(post);
-		String user = (String) session.getAttribute("user");
+		userService.savePost(post); // make the post and save it in the repo
+		String user = (String) session.getAttribute("user"); // get the current user
 		BlogAccount accountUser  = userService.findBlogAccountByUsername(user);
-		accountUser.getPosts().add(post);
+		accountUser.getPosts().add(post); //add the post to the current user's post list
 		userService.saveBlogAccount(accountUser);
 		session.setAttribute("posts", accountUser.getPosts());
 		return "homePage";
@@ -34,8 +34,6 @@ public class PostController {
 	
 	@RequestMapping("/deletePost") //send a post to this request
 	public String deletePost(Post post, HttpServletRequest req, Model model) {
-		System.out.println(post);
-		System.out.println(model);
 		HttpSession session = req.getSession(); // get the current session
 		
 		
@@ -43,7 +41,7 @@ public class PostController {
 		
 		BlogAccount accountUser  = userService.findBlogAccountByUsername(user); //get the BlogAccount by username
 		
-		userService.deletePost(post); //send the post to the service repo method
+		userService.deletePost(post, accountUser); //send the post to the service repo method
 		
 		
 		session.setAttribute("posts", accountUser.getPosts()); //get the posts by this user and set it in the session 

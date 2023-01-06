@@ -10,27 +10,36 @@
 </head>
 <body>
 
-	<div id="container" class="container">
+	<div class="container">
+		
 		<div class="row mt-5">
+		
 			<form id="login-form" class="col-4 mx-auto border border-dark rounded" action="#" th:action= "@{/homePage}" method=POST>
+				
 				<div class="col-8 mx-auto">
+				
 					<div class="form-group col-6 mt-3">
 						<input name="username" type="text" placeholder="Username">
 					</div>
 			
-			<div class="form-group col-6 ">
-				<input name="password" type="password" placeholder="Password">
-			</div>
+					<div class="form-group col-6 ">
+						<input name="password" type="password" placeholder="Password">
+					</div>
 			
-			<div class="form-group col-12 mx-auto pb-4 d-flex">
-			<button class="btn btn-dark mx-auto">Submit</button>
-			<button class="btn btn-dark mx-auto" ><a th:href="@{/createAccountPage}">Create</a></button>
-			</div>
-		</div>	
+					<div class="form-group col-12 mx-auto pb-4 d-flex">
+						<button class="btn btn-dark mx-auto">Submit</button>
+						<button class="btn btn-dark mx-auto" ><a th:href="@{/createAccountPage}">Create</a></button>
+					</div>
+					
+				</div>	
+				
 			
-		</form>
+			</form>
+			
 		</div>
+		
 	</div>
+
 
 
 <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
